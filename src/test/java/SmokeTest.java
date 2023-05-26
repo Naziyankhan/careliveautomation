@@ -1,3 +1,4 @@
+import com.carelive.pages.AddbranchPage;
 import com.carelive.pages.HomePage;
 import com.carelive.pages.LoginPage;
 import com.carelive.pages.MasterPage;
@@ -8,6 +9,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
 
 public class SmokeTest {
 
@@ -20,22 +23,39 @@ public class SmokeTest {
         System.setProperty("webdriver.chrome.driver","C:\\Java\\Selenium\\chromedriver2\\chromedriver.exe");
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         LoginPage.login(driver);
     }
 
+//    @Test
+//    public static void addBranch() throws InterruptedException {
+//        HomePage.clickOnMaster(driver);
+//        MasterPage.clickonAddbranch(driver);
+//        AddbranchPage.enterBranchDetails(driver);
+//
+//    }
     @Test
-    public static void addBranch() throws InterruptedException {
+    public static void addBranchwithmandatoryfields() throws InterruptedException {
         HomePage.clickOnMaster(driver);
         MasterPage.clickonAddbranch(driver);
+        AddbranchPage.addbranchwithmandatoryfields(driver);
     }
+
+    @Test
+    public static void verifyMandatorylabels() throws InterruptedException {
+        HomePage.clickOnMaster(driver);
+        MasterPage.clickonAddbranch(driver);
+        AddbranchPage.verifyMandatoryFields(driver);
+    }
+
 
     @Test
     public static void listBranch(){
 
     }
 
- //   @AfterTest
+  @AfterTest
     public void tearDown(){
         driver.quit();
     }

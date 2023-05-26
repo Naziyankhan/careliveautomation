@@ -18,7 +18,6 @@ static By OK  = By.xpath("(//button[text()='OK'])[2]");
         WebElement txtPassword = driver.findElement(password);
         txtPassword.sendKeys("Tdx@2022");
         driver.findElement(login).click();
-        Thread.sleep(10000);
         driver.findElement(OK).click();
     }
 
