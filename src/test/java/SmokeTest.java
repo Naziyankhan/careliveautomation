@@ -1,7 +1,4 @@
-import com.carelive.pages.AddbranchPage;
-import com.carelive.pages.HomePage;
-import com.carelive.pages.LoginPage;
-import com.carelive.pages.MasterPage;
+import com.carelive.pages.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -19,7 +16,7 @@ public class SmokeTest {
 
         //   WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        System.setProperty("webdriver.chrome.driver","C:\\Java\\Selenium\\chromedriver2\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Java eclipse\\chromedriver\\chromedriver.exe");
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -71,9 +68,82 @@ public class SmokeTest {
         MasterPage.clickonAddbranch(driver);
         AddbranchPage.verifybranchname(driver);
     }
-    @Test
-    public static void listBranch(){
 
+    @Test
+    public static void verifygst() throws InterruptedException
+    {
+        HomePage.clickOnMaster(driver);
+        MasterPage.clickonAddbranch(driver);
+        AddbranchPage.verifygst(driver);
+    }
+    @Test
+    public static void verifyservicenumber() throws InterruptedException
+    {
+        HomePage.clickOnMaster(driver);
+        MasterPage.clickonAddbranch(driver);
+        AddbranchPage.verifyservicenumber(driver);
+    }
+    @Test
+    public static void verifylatitude() throws InterruptedException
+    {
+        HomePage.clickOnMaster(driver);
+        MasterPage.clickonAddbranch(driver);
+        AddbranchPage.verifylatitude(driver);
+    }
+    @Test
+    public static void verifyLongitude() throws InterruptedException {
+        HomePage.clickOnMaster(driver);
+        MasterPage.clickonAddbranch(driver);
+        AddbranchPage.verifylongitude(driver);
+    }
+    @Test
+    public static void verifystaticip() throws InterruptedException
+    {
+        HomePage.clickOnMaster(driver);
+        MasterPage.clickonAddbranch(driver);
+        AddbranchPage.verifystaticip(driver);
+    }
+    @Test
+    public static void verifyLatitudelabel() throws InterruptedException {
+        HomePage.clickOnMaster(driver);
+        MasterPage.clickonAddbranch(driver);
+        AddbranchPage.verifyLatitudelabel(driver);
+    }
+    @Test
+    public static void delete() throws InterruptedException {
+        HomePage.clickOnMaster(driver);
+        MasterPage.clickonbranchlist(driver);
+        BranchListPage.delete_branch_list(driver);
+    }
+    @Test
+    public static void edit() throws InterruptedException {
+        HomePage.clickOnMaster(driver);
+        MasterPage.clickonbranchlist(driver);
+        BranchListPage.edit_branch_list(driver);
+    }
+    @Test
+    public static void branchcode() throws InterruptedException {
+        HomePage.clickOnMaster(driver);
+        MasterPage.clickonbranchlist(driver);
+        BranchListPage.branchcode_notmarkedwith_asterisksign(driver);
+    }
+    @Test
+    public static void time() throws InterruptedException {
+        HomePage.clickOnMaster(driver);
+        MasterPage.clickonbranchlist(driver);
+        BranchListPage.inauguration_time(driver);
+    }
+    @Test
+    public static void save_already_deleted_data() throws InterruptedException {
+        HomePage.clickOnMaster(driver);
+        MasterPage.clickonAddbranch(driver);
+        AddbranchPage.save_details(driver);
+    }
+    @Test
+    public static void spelling_error() throws InterruptedException {
+        HomePage.clickOnMaster(driver);
+        MasterPage.clickonAddbranch(driver);
+        AddbranchPage.branch_already_exist(driver);
     }
 
   @AfterTest

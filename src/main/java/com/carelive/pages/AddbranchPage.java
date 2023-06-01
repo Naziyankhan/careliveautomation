@@ -8,9 +8,12 @@ import static java.lang.Boolean.TRUE;
 
 
 public class AddbranchPage {
+    static By EXIST = By.xpath("//div[text()='Branch Aleady exists']");
+    static By SPELL= By.xpath("//mat-error[contains(text(),'Enter a location lattitude.')]");
     static By BRANCHCODE = By.xpath("//input[@name='code']");
     static By BRANCHNAME = By.xpath("//input[@name='branch']");
     static By BRANCHCATEGORY = By.name("branchCategory");
+    static By OK = By.xpath("(//button[text()='OK'])");
     static By DEFAULTVALUE = By.xpath("//span[@class='mat-option-text']");
     static By HIERARCHY = By.name("hierarchy");
     static By PRICETEMPLATE = By.name("intPriceTemplate");
@@ -40,8 +43,8 @@ public class AddbranchPage {
     static By AMOUNT = By.name("stockRqstAmount");
     static By SAVE = By.xpath("//button[contains(text(),'Save')]");
 //    static By SAVED = By.xpath("//div[text()='Data saved successfully']");
-static By SAVED = By.xpath("//div[@id='swal2-content']");
-static By BRACATMESSAGE = By.xpath("//mat-error[text()=' You must select a branch category. ']");
+    static By SAVED = By.xpath("//div[@id='swal2-content']");
+    static By BRACATMESSAGE = By.xpath("//mat-error[text()=' You must select a branch category. ']");
 
 
     public static void enterBranchDetails(WebDriver driver) throws InterruptedException {
@@ -244,4 +247,226 @@ static By BRACATMESSAGE = By.xpath("//mat-error[text()=' You must select a branc
         driver.findElement(SAVE).click();
         Assert.assertEquals(driver.findElement(BRANCHNAME).getText(), "CARE LIVE", "Branch name must be in alphanumeric ");
     }
+    public static void verifygst(WebDriver driver) throws InterruptedException
+    {
+        driver.findElement(BRANCHCODE).sendKeys("CR823");
+        driver.findElement(BRANCHNAME).sendKeys("CARE28");
+        driver.findElement(BRANCHCATEGORY).click();
+        driver.findElement(DEFAULTVALUE).click();
+        driver.findElement(HIERARCHY).click();
+        driver.findElement(HIERARCHYVALUE).click();
+        driver.findElement(PRICETEMPLATE).click();
+        driver.findElement(PRICETEMPLATEVALUE).click();
+        driver.findElement(GST).sendKeys("142536789");
+        driver.findElement(PINCODE).sendKeys("690e34");
+        driver.findElement(STATE).click();
+        Thread.sleep(300);
+        driver.findElement(BRANCHSTATE).click();
+        driver.findElement(EMAIL).sendKeys("carelive123@gmail.com");
+        driver.findElement(CONTACTNO).sendKeys("+91 83027516E110HJKLG");
+        driver.findElement(BRANCHSTOCKLIMIT).sendKeys("20E000");
+        driver.findElement(INAUGURATIONDATE).click();
+        driver.findElement(INAGURATIONDATEVALUE).click();
+        driver.findElement(LATITUDE).sendKeys("11.543");
+        driver.findElement(LONGITUDE).sendKeys("10.087");
+        driver.findElement(SIZE).sendKeys("2000");
+        driver.findElement(STATICIP).sendKeys("192.168.1.1");
+        driver.findElement(QUNATITY).sendKeys("1000");
+        driver.findElement(AMOUNT).sendKeys("10000");
+        driver.findElement(SAVE).click();
+        Assert.assertEquals(driver.findElement(GST), "32ABCTY1234D2z9", "gst should be in Correct format");
     }
+    public static void verifyservicenumber(WebDriver driver) throws InterruptedException
+    {
+        driver.findElement(BRANCHCODE).sendKeys("CARE07");
+        driver.findElement(BRANCHNAME).sendKeys("CAREL01");
+        driver.findElement(BRANCHCATEGORY).click();
+        Thread.sleep(500);
+        driver.findElement(DEFAULTVALUE).click();
+        Thread.sleep(300);
+        driver.findElement(HIERARCHY).click();
+        Thread.sleep(500);
+        driver.findElement(HIERARCHYVALUE).click();
+        driver.findElement(PRICETEMPLATE).click();
+        driver.findElement(PRICETEMPLATEVALUE).click();
+        Thread.sleep(500);
+        driver.findElement(ADDRESS).sendKeys(" ");
+        driver.findElement(GST).sendKeys("12435698sdhjeo@#");
+        driver.findElement(PINCODE).sendKeys("681833");
+        driver.findElement(STATE).click();
+        Thread.sleep(500);
+        driver.findElement(BRANCHSTATE).click();
+        driver.findElement(EMAIL).sendKeys("Care.livel16@gmail.com");
+        driver.findElement(SERVICENUMBER).sendKeys("011234567@@#89FHNVNM");
+        Thread.sleep(1000);
+        driver.findElement(CONTACTNO).sendKeys("+918306785431hkm");
+        driver.findElement(BRANCHSTOCKLIMIT).sendKeys("1000000000");
+        driver.findElement(INAUGURATIONDATE).click();
+        Thread.sleep(500);
+        driver.findElement(INAGURATIONDATEVALUE).click();
+        driver.findElement(INAUGURATIONTIME).sendKeys("11:11");
+        driver.findElement(INAUGURATEDBY).sendKeys("MLA");
+        driver.findElement(LATITUDE).sendKeys("11.5O43");
+        driver.findElement(LONGITUDE).sendKeys("10.0O87");
+        driver.findElement(SIZE).sendKeys("200000000");
+        driver.findElement(STATICIP).sendKeys("192.168.1#qw1");
+        driver.findElement(QUNATITY).sendKeys("1021301wsx");
+        driver.findElement(AMOUNT).sendKeys("100ccds00");
+        Thread.sleep(300);
+        driver.findElement(SAVE).click();
+        Assert.assertEquals(driver.findElement(SERVICENUMBER).getText(), "+91 9857421364" , "Service number must allow numbers only");
+    }
+    public static void verifylatitude(WebDriver driver) throws InterruptedException
+    {
+        driver.findElement(BRANCHCODE).sendKeys("care120");
+        driver.findElement(BRANCHNAME).sendKeys("care4211");
+        driver.findElement(BRANCHCATEGORY).click();
+        driver.findElement(DEFAULTVALUE).click();
+        driver.findElement(HIERARCHY).click();
+        driver.findElement(HIERARCHYVALUE).click();
+        driver.findElement(PRICETEMPLATE).click();
+        driver.findElement(PRICETEMPLATEVALUE).click();
+        driver.findElement(GST).sendKeys("123456789789456123");
+        driver.findElement(PINCODE).sendKeys(" 123456");
+        driver.findElement(STATE).click();
+        Thread.sleep(300);
+        driver.findElement(BRANCHSTATE).click();
+        driver.findElement(EMAIL).sendKeys("test123@gmail.com");
+        driver.findElement(CONTACTNO).sendKeys("7542136984");
+        driver.findElement(BRANCHSTOCKLIMIT).sendKeys("200000000");
+        driver.findElement(INAUGURATIONDATE).click();
+        driver.findElement(INAGURATIONDATEVALUE).click();
+        driver.findElement(LATITUDE).sendKeys(" 123456");
+        driver.findElement(LONGITUDE).sendKeys("123456");
+        driver.findElement(SIZE).sendKeys("2000000");
+        driver.findElement(STATICIP).sendKeys("00");
+        driver.findElement(QUNATITY).sendKeys("10000");
+        driver.findElement(AMOUNT).sendKeys("100000");
+        // driver.findElement(SAVE).click();
+        Assert.assertEquals(driver.findElement(LATITUDE).isDisplayed(), "10.293580" ,"LATITUDE ");
+
+    }
+    public static void verifylongitude(WebDriver driver) throws InterruptedException {
+        driver.findElement(BRANCHCODE).sendKeys("care120");
+        driver.findElement(BRANCHNAME).sendKeys("care4211");
+        driver.findElement(BRANCHCATEGORY).click();
+        driver.findElement(DEFAULTVALUE).click();
+        driver.findElement(HIERARCHY).click();
+        driver.findElement(HIERARCHYVALUE).click();
+        driver.findElement(PRICETEMPLATE).click();
+        driver.findElement(PRICETEMPLATEVALUE).click();
+        driver.findElement(GST).sendKeys("123456789789456123");
+        driver.findElement(PINCODE).sendKeys(" 123456");
+        driver.findElement(STATE).click();
+        Thread.sleep(300);
+        driver.findElement(BRANCHSTATE).click();
+        driver.findElement(EMAIL).sendKeys("test123@gmail.com");
+        driver.findElement(CONTACTNO).sendKeys("7542136984");
+        driver.findElement(BRANCHSTOCKLIMIT).sendKeys("200000000");
+        driver.findElement(INAUGURATIONDATE).click();
+        driver.findElement(INAGURATIONDATEVALUE).click();
+        driver.findElement(LATITUDE).sendKeys(" 123456");
+        driver.findElement(LONGITUDE).sendKeys("123456");
+        driver.findElement(SIZE).sendKeys("2000000");
+        driver.findElement(STATICIP).sendKeys("00");
+        driver.findElement(QUNATITY).sendKeys("10000");
+        driver.findElement(AMOUNT).sendKeys("100000");
+        // driver.findElement(SAVE).click();
+        Assert.assertEquals(driver.findElement(LONGITUDE).isDisplayed(), "76.313889" ,"LONGITUDE ");
+
+    }
+    public static void verifystaticip(WebDriver driver) throws InterruptedException
+    {
+        driver.findElement(BRANCHCODE).sendKeys("Care120");
+        driver.findElement(BRANCHNAME).sendKeys("Care Live ");
+        driver.findElement(BRANCHCATEGORY).click();
+        driver.findElement(DEFAULTVALUE).click();
+        driver.findElement(HIERARCHY).click();
+        driver.findElement(HIERARCHYVALUE).click();
+        driver.findElement(PRICETEMPLATE).click();
+        driver.findElement(PRICETEMPLATEVALUE).click();
+        driver.findElement(GST).sendKeys("123456789789456123");
+        driver.findElement(PINCODE).sendKeys(" 123456");
+        driver.findElement(STATE).click();
+        Thread.sleep(300);
+        driver.findElement(BRANCHSTATE).click();
+        driver.findElement(EMAIL).sendKeys("test123@gmail.com");
+        driver.findElement(CONTACTNO).sendKeys("7542136984");
+        driver.findElement(BRANCHSTOCKLIMIT).sendKeys("200000");
+        driver.findElement(INAUGURATIONDATE).click();
+        driver.findElement(INAGURATIONDATEVALUE).click();
+        driver.findElement(LATITUDE).sendKeys("45° 46' 52\" N");
+        driver.findElement(LONGITUDE).sendKeys("108° 30' 14\" W");
+        driver.findElement(SIZE).sendKeys("2000000");
+        driver.findElement(STATICIP).sendKeys("123456");
+        driver.findElement(QUNATITY).sendKeys("10000");
+        driver.findElement(AMOUNT).sendKeys("100000");
+        driver.findElement(SAVE).click();
+        Assert.assertEquals(driver.findElement(STATICIP).isDisplayed() , "192.168.1", "Static IP address must be in correct format");
+    }
+    public static void verifyLatitudelabel(WebDriver driver)
+    {
+        driver.findElement(LATITUDE).click();
+        driver.findElement(LONGITUDE).click();
+        Assert.assertEquals(driver.findElement(SPELL).getText(),"You must enter a location latitude.", "alert is display");
+    }
+    public static void save_details(WebDriver driver) throws InterruptedException {
+        driver.findElement(BRANCHCODE).sendKeys("Care120");
+        driver.findElement(BRANCHNAME).sendKeys("Care Live ");
+        driver.findElement(BRANCHCATEGORY).click();
+        driver.findElement(DEFAULTVALUE).click();
+        driver.findElement(HIERARCHY).click();
+        driver.findElement(HIERARCHYVALUE).click();
+        driver.findElement(PRICETEMPLATE).click();
+        driver.findElement(PRICETEMPLATEVALUE).click();
+        driver.findElement(GST).sendKeys("123456789789456123");
+        driver.findElement(PINCODE).sendKeys(" 123456");
+        driver.findElement(STATE).click();
+        Thread.sleep(300);
+        driver.findElement(BRANCHSTATE).click();
+        driver.findElement(EMAIL).sendKeys("test123@gmail.com");
+        driver.findElement(CONTACTNO).sendKeys("7542136984");
+        driver.findElement(BRANCHSTOCKLIMIT).sendKeys("200000");
+        driver.findElement(INAUGURATIONDATE).click();
+        driver.findElement(INAGURATIONDATEVALUE).click();
+        driver.findElement(LATITUDE).sendKeys("45° 46' 52\" N");
+        driver.findElement(LONGITUDE).sendKeys("108° 30' 14\" W");
+        driver.findElement(SIZE).sendKeys("2000000");
+        driver.findElement(STATICIP).sendKeys("123456");
+        driver.findElement(QUNATITY).sendKeys("10000");
+        driver.findElement(AMOUNT).sendKeys("100000");
+        driver.findElement(SAVE).click();
+        Assert.assertEquals(driver.findElement(EXIST).getText(),false,"DATA NOT SAVED");
+        driver.findElement(OK).click();
+    }
+    public static void branch_already_exist(WebDriver driver) throws InterruptedException {
+        driver.findElement(BRANCHCODE).sendKeys("Care120");
+        driver.findElement(BRANCHNAME).sendKeys("Care Live ");
+        driver.findElement(BRANCHCATEGORY).click();
+        driver.findElement(DEFAULTVALUE).click();
+        driver.findElement(HIERARCHY).click();
+        driver.findElement(HIERARCHYVALUE).click();
+        driver.findElement(PRICETEMPLATE).click();
+        driver.findElement(PRICETEMPLATEVALUE).click();
+        driver.findElement(GST).sendKeys("123456789789456123");
+        driver.findElement(PINCODE).sendKeys(" 123456");
+        driver.findElement(STATE).click();
+        Thread.sleep(300);
+        driver.findElement(BRANCHSTATE).click();
+        driver.findElement(EMAIL).sendKeys("test123@gmail.com");
+        driver.findElement(CONTACTNO).sendKeys("7542136984");
+        driver.findElement(BRANCHSTOCKLIMIT).sendKeys("200000");
+        driver.findElement(INAUGURATIONDATE).click();
+        driver.findElement(INAGURATIONDATEVALUE).click();
+        driver.findElement(LATITUDE).sendKeys("45° 46' 52\" N");
+        driver.findElement(LONGITUDE).sendKeys("108° 30' 14\" W");
+        driver.findElement(SIZE).sendKeys("2000000");
+        driver.findElement(STATICIP).sendKeys("123456");
+        driver.findElement(QUNATITY).sendKeys("10000");
+        driver.findElement(AMOUNT).sendKeys("100000");
+        driver.findElement(SAVE).click();
+        Assert.assertEquals(driver.findElement(EXIST).getText(), "Branch Already Exist","spelling error");
+        //driver.findElement(OK).click();
+    }
+
+}
