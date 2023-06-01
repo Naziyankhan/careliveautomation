@@ -82,9 +82,8 @@ static By BRACATMESSAGE = By.xpath("//mat-error[text()=' You must select a branc
         driver.findElement(QUNATITY).sendKeys("100");
         driver.findElement(AMOUNT).sendKeys("10000");
         driver.findElement(SAVE).click();
+        Assert.assertTrue(driver.findElement(SAVED).isDisplayed());
 
-
-        Assert.assertEquals(driver.findElement(SAVED).isDisplayed(), true, "Data saved successfully");
 
     }
 
