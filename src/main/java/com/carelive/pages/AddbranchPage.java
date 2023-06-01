@@ -14,6 +14,7 @@ public class AddbranchPage {
     static By DEFAULTVALUE = By.xpath("//span[@class='mat-option-text']");
     static By HIERARCHY = By.name("hierarchy");
     static By PRICETEMPLATE = By.name("intPriceTemplate");
+    static By HIERARCHYVALUE = By.xpath("//span[contains(text(),'GENERAL-GENERAL')]");
     static By PRICETEMPLATEVALUE = By.xpath("//span[@class='mat-option-text' and text()='COST PRICE']");
     static By ADDRESS = By.name("address");
     static By GST = By.name("gstNo");
@@ -21,6 +22,7 @@ public class AddbranchPage {
     static By STATE = By.name("branchState");
     static By BRANCHSTATE = By.xpath("//span[contains(text(),'Kerala')]");
     static By EMAIL = By.name("email");
+    static By DATE = By.name("inaugurationDate");
     static By SERVICENUMBER = By.name("mygcareno");
     static By CONTACTNO = By.id("mat-input-10");
     static By BRANCHSTOCKLIMIT = By.name("branchStockLimit");
@@ -126,5 +128,121 @@ static By BRACATMESSAGE = By.xpath("//mat-error[text()=' You must select a branc
         Thread.sleep(1000);
         Assert.assertEquals(driver.findElement(BRACATMESSAGE).isDisplayed(),TRUE,"Alert displayed");
 
+    }
+    public static void calenderinput(WebDriver driver) throws InterruptedException
+    {
+        driver.findElement(BRANCHCODE).sendKeys("BRANCH020");
+        driver.findElement(BRANCHNAME).sendKeys("CARELIVE020");
+        driver.findElement(BRANCHCATEGORY).click();
+        driver.findElement(DEFAULTVALUE).click();
+        driver.findElement(HIERARCHY).click();
+        driver.findElement(HIERARCHYVALUE).click();
+        driver.findElement(PRICETEMPLATE).click();
+        driver.findElement(PRICETEMPLATEVALUE).click();
+        driver.findElement(GST).sendKeys("142536789");
+        driver.findElement(PINCODE).sendKeys("690734");
+        driver.findElement(STATE).click();
+        Thread.sleep(300);
+        driver.findElement(BRANCHSTATE).click();
+        driver.findElement(EMAIL).sendKeys("carelive123@gmail.com");
+        driver.findElement(CONTACTNO).sendKeys("8302751610");
+        driver.findElement(BRANCHSTOCKLIMIT).sendKeys("20000");
+        driver.findElement(DATE).sendKeys("24/5/2023");
+        driver.findElement(LATITUDE).sendKeys("11.543");
+        driver.findElement(LONGITUDE).sendKeys("10.087");
+        driver.findElement(SIZE).sendKeys("2000");
+        driver.findElement(STATICIP).sendKeys("192.168.1.1");
+        driver.findElement(QUNATITY).sendKeys("1000");
+        driver.findElement(AMOUNT).sendKeys("10000");
+        driver.findElement(SAVE).click();
+        Assert.assertEquals(driver.findElement(DATE).getText(), false ,"date ");
+
+    }
+    public static void  verifyphonenumber(WebDriver driver) throws InterruptedException
+    {
+        driver.findElement(BRANCHCODE).sendKeys("CR823");
+        driver.findElement(BRANCHNAME).sendKeys("CARE28");
+        driver.findElement(BRANCHCATEGORY).click();
+        driver.findElement(DEFAULTVALUE).click();
+        driver.findElement(HIERARCHY).click();
+        driver.findElement(HIERARCHYVALUE).click();
+        driver.findElement(PRICETEMPLATE).click();
+        driver.findElement(PRICETEMPLATEVALUE).click();
+        driver.findElement(GST).sendKeys("142536789");
+        driver.findElement(PINCODE).sendKeys("690e34");
+        driver.findElement(STATE).click();
+        Thread.sleep(300);
+        driver.findElement(BRANCHSTATE).click();
+        driver.findElement(EMAIL).sendKeys("carelive123@gmail.com");
+        driver.findElement(CONTACTNO).sendKeys("+91 83027516E110HJKLG");
+        driver.findElement(BRANCHSTOCKLIMIT).sendKeys("20E000");
+        driver.findElement(INAUGURATIONDATE).click();
+        driver.findElement(INAGURATIONDATEVALUE).click();
+        driver.findElement(LATITUDE).sendKeys("11.543");
+        driver.findElement(LONGITUDE).sendKeys("10.087");
+        driver.findElement(SIZE).sendKeys("2000");
+        driver.findElement(STATICIP).sendKeys("192.168.1.1");
+        driver.findElement(QUNATITY).sendKeys("1000");
+        driver.findElement(AMOUNT).sendKeys("10000");
+        driver.findElement(SAVE).click();
+        Assert.assertEquals(driver.findElement(CONTACTNO).getText(),"+91 8754213692" , "Contact number must allow +, - signs");
+    }
+    public static void  verifybranchcode(WebDriver driver) throws InterruptedException
+    {
+        driver.findElement(BRANCHCODE).sendKeys("BRANCH01&*^&&");
+        driver.findElement(BRANCHNAME).sendKeys("CARELIVE014");
+        driver.findElement(BRANCHCATEGORY).click();
+        driver.findElement(DEFAULTVALUE).click();
+        driver.findElement(HIERARCHY).click();
+        driver.findElement(HIERARCHYVALUE).click();
+        driver.findElement(PRICETEMPLATE).click();
+        driver.findElement(PRICETEMPLATEVALUE).click();
+        driver.findElement(GST).sendKeys("142536789");
+        driver.findElement(PINCODE).sendKeys("690734");
+        driver.findElement(STATE).click();
+        Thread.sleep(300);
+        driver.findElement(BRANCHSTATE).click();
+        driver.findElement(EMAIL).sendKeys("carelive123@gmail.com");
+        driver.findElement(CONTACTNO).sendKeys("+91 8302751610HJKLG");
+        driver.findElement(BRANCHSTOCKLIMIT).sendKeys("20000");
+        driver.findElement(INAUGURATIONDATE).click();
+        driver.findElement(INAGURATIONDATEVALUE).click();
+        driver.findElement(LATITUDE).sendKeys("11.543");
+        driver.findElement(LONGITUDE).sendKeys("10.087");
+        driver.findElement(SIZE).sendKeys("2000");
+        driver.findElement(STATICIP).sendKeys("192.168.1.1");
+        driver.findElement(QUNATITY).sendKeys("1000");
+        driver.findElement(AMOUNT).sendKeys("10000");
+        driver.findElement(SAVE).click();
+        Assert.assertEquals(driver.findElement(BRANCHCODE).getText() , "BRANCH01" , "Branch code must be in alphanumeric");
+    }
+    public static void verifybranchname(WebDriver driver) throws InterruptedException
+    {
+        driver.findElement(BRANCHCODE).sendKeys("BRANCH&*^&&");
+        driver.findElement(BRANCHNAME).sendKeys("CARE LI#@$$");
+        driver.findElement(BRANCHCATEGORY).click();
+        driver.findElement(DEFAULTVALUE).click();
+        driver.findElement(HIERARCHY).click();
+        driver.findElement(HIERARCHYVALUE).click();
+        driver.findElement(PRICETEMPLATE).click();
+        driver.findElement(PRICETEMPLATEVALUE).click();
+        driver.findElement(GST).sendKeys("142536789");
+        driver.findElement(PINCODE).sendKeys("690734");
+        driver.findElement(STATE).click();
+        Thread.sleep(300);
+        driver.findElement(BRANCHSTATE).click();
+        driver.findElement(EMAIL).sendKeys("carelive123@gmail.com");
+        driver.findElement(CONTACTNO).sendKeys("+91 8302751610HJKLG");
+        driver.findElement(BRANCHSTOCKLIMIT).sendKeys("20000");
+        driver.findElement(INAUGURATIONDATE).click();
+        driver.findElement(INAGURATIONDATEVALUE).click();
+        driver.findElement(LATITUDE).sendKeys("11.543");
+        driver.findElement(LONGITUDE).sendKeys("10.087");
+        driver.findElement(SIZE).sendKeys("2000");
+        driver.findElement(STATICIP).sendKeys("192.168.1.1");
+        driver.findElement(QUNATITY).sendKeys("1000");
+        driver.findElement(AMOUNT).sendKeys("10000");
+        driver.findElement(SAVE).click();
+        Assert.assertEquals(driver.findElement(BRANCHNAME).getText(), "CARE LIVE", "Branch name must be in alphanumeric ");
     }
     }

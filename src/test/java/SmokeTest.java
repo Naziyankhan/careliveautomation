@@ -28,13 +28,12 @@ public class SmokeTest {
         LoginPage.login(driver);
     }
 
-//    @Test
-//    public static void addBranch() throws InterruptedException {
-//        HomePage.clickOnMaster(driver);
-//        MasterPage.clickonAddbranch(driver);
-//        AddbranchPage.enterBranchDetails(driver);
-//
-//    }
+  @Test
+   public static void addBranch() throws InterruptedException {
+       HomePage.clickOnMaster(driver);
+       MasterPage.clickonAddbranch(driver);
+       AddbranchPage.enterBranchDetails(driver);
+   }
     @Test
     public static void addBranchwithmandatoryfields() throws InterruptedException {
         HomePage.clickOnMaster(driver);
@@ -48,8 +47,31 @@ public class SmokeTest {
         MasterPage.clickonAddbranch(driver);
         AddbranchPage.verifyMandatoryFields(driver);
     }
+    @Test
+    public static void calenderinput() throws InterruptedException {
+        HomePage.clickOnMaster(driver);
+        MasterPage.clickonAddbranch(driver);
+        AddbranchPage.calenderinput(driver);
+    }
 
-
+    @Test
+    public static void verifyphonenumber() throws InterruptedException {
+        HomePage.clickOnMaster(driver);
+        MasterPage.clickonAddbranch(driver);
+        AddbranchPage.verifyphonenumber(driver);
+    }
+    @Test
+    public static void verifybranchcode() throws InterruptedException {
+        HomePage.clickOnMaster(driver);
+        MasterPage.clickonAddbranch(driver);
+        AddbranchPage.verifybranchcode(driver);
+    }
+    @Test
+    public static void verifybranchname() throws InterruptedException {
+        HomePage.clickOnMaster(driver);
+        MasterPage.clickonAddbranch(driver);
+        AddbranchPage.verifybranchname(driver);
+    }
     @Test
     public static void listBranch(){
 
