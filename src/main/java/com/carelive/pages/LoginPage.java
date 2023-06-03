@@ -21,6 +21,7 @@ static By OK  = By.xpath("(//button[text()='OK'])[2]");
         driver.findElement(login).click();
         Thread.sleep(3000);
         driver.findElement(OK).click();
+        //test
     }
 
 }
