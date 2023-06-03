@@ -15,10 +15,10 @@ public class SmokeTest {
     public void lanuchLogin() throws InterruptedException {
 
         //   WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        System.setProperty("webdriver.chrome.driver", "C:\\Java eclipse\\chromedriver\\chromedriver.exe");
-        options.addArguments("--remote-allow-origins=*");
-        driver = new ChromeDriver(options);
+//        ChromeOptions options = new ChromeOptions();
+////        System.setProperty("webdriver.chrome.driver", "C:\\Java eclipse\\chromedriver\\chromedriver.exe");
+////        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         LoginPage.login(driver);
