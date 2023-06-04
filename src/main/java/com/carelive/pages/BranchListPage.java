@@ -27,7 +27,7 @@ public class BranchListPage {
     static By AMOUNT = By.name("stockRqstAmount");
     static By  SPELL= By.xpath("//mat-error[contains(text(),' you must select a price template ')]");
     static By  BRANCHNAME = By.name("branch");
-    static By TIME= By.xpath("//mat-form-field//div//input[@class='mat-input-element mat-form-field-autofill-control ng-tns-c96-50 ng-untouched ng-pristine ng-valid cdk-text-field-autofill-monitored");
+    static By TIME= By.xpath("//input[@type='time']");
     static By DELETED = By.xpath("//div[@id='swal2-content']");
     static By DELBUTTON = By.xpath("//button[text()='Yes, Delete it!']");
     static By OK = By.xpath("//button[text()='OK']");
