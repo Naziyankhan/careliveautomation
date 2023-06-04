@@ -39,3 +39,4 @@ build/
 /.idea/git_toolbox_prj.xml
 /.idea/misc.xml
 .idea/misc.xml
+!/.idea/misc.xml
