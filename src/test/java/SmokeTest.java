@@ -7,20 +7,18 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
+import utils.driverHelper;
 
 public class SmokeTest {
 
     static WebDriver driver;
     @BeforeTest
-    public void lanuchLogin() throws InterruptedException {
+    public static void lanuchLogin() throws InterruptedException {
 
-        //   WebDriverManager.chromedriver().setup();
-//        ChromeOptions options = new ChromeOptions();
-////        System.setProperty("webdriver.chrome.driver", "C:\\Java eclipse\\chromedriver\\chromedriver.exe");
-////        options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        driverHelper.setDriver(driver);
         LoginPage.login(driver);
     }
 
