@@ -86,8 +86,6 @@ public class AddbranchPage {
         driver.findElement(AMOUNT).sendKeys("10000");
         driver.findElement(SAVE).click();
         Assert.assertTrue(driver.findElement(SAVED).isDisplayed());
-
-
     }
 
     public static void addbranchwithmandatoryfields(WebDriver driver) throws InterruptedException {
@@ -119,10 +117,8 @@ public class AddbranchPage {
         driver.findElement(QUNATITY).sendKeys("100");
         driver.findElement(AMOUNT).sendKeys("22000");
         driver.findElement(SAVE).click();
-
         Assert.assertEquals(driver.findElement(SAVED).getText(), "Data saved successfully", "Data saved successfully");
     }
-
     public static void verifyMandatoryFields(WebDriver driver) throws InterruptedException {
         driver.findElement(BRANCHCATEGORY).click();
         Thread.sleep(2000);
@@ -158,7 +154,6 @@ public class AddbranchPage {
         driver.findElement(AMOUNT).sendKeys("10000");
         driver.findElement(SAVE).click();
       //  Assert.assertEquals(driver.findElement(DATE).getText(), false ,"date ");
-
     }
     public static void  verifyphonenumber(WebDriver driver) throws InterruptedException
     {
@@ -274,7 +269,7 @@ public class AddbranchPage {
         driver.findElement(QUNATITY).sendKeys("1000");
         driver.findElement(AMOUNT).sendKeys("10000");
         driver.findElement(SAVE).click();
-        Assert.assertEquals(driver.findElement(GST), "32ABCTY1234D2z9", "gst should be in Correct format");
+        Assert.assertEquals(driver.findElement(GST).isDisplayed(), "32ABCTY1234D2z9", "gst should be in Correct format");
     }
     public static void verifyservicenumber(WebDriver driver) throws InterruptedException
     {
