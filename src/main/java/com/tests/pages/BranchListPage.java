@@ -1,4 +1,4 @@
-package com.carelive.pages;
+package com.tests.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

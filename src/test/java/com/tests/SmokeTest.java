@@ -1,19 +1,28 @@
-import com.carelive.pages.*;
+package com.tests;
+
+import com.tests.pages.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
+import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 import utils.driverHelper;
 
+import static utils.ExtentTestManager.startTest;
+
+
 public class SmokeTest {
 
-    static WebDriver driver;
-    @BeforeTest
-    public static void lanuchLogin() throws InterruptedException {
+    public WebDriver driver;
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+
+
+    @BeforeMethod
+    public void lanuchLogin() throws InterruptedException {
 
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -23,129 +32,149 @@ public class SmokeTest {
     }
 
   @Test
-   public static void addBranch() throws InterruptedException {
+   public void addBranch(Method method) throws InterruptedException {
+        startTest(method.getName(), "Invalid Login Scenario with empty username and password.");
        HomePage.clickOnMaster(driver);
        MasterPage.clickonAddbranch(driver);
        AddbranchPage.enterBranchDetails(driver);
    }
     @Test
-    public static void addBranchwithmandatoryfields() throws InterruptedException {
+    public void addBranchwithmandatoryfields(Method method) throws InterruptedException {
+        startTest(method.getName(), "addBranchwithmandatoryfields");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonAddbranch(driver);
         AddbranchPage.addbranchwithmandatoryfields(driver);
     }
 
     @Test
-    public static void verifyMandatorylabels() throws InterruptedException {
+    public void verifyMandatorylabels(Method method) throws InterruptedException {
+        startTest(method.getName(), "verifyMandatorylabels");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonAddbranch(driver);
         AddbranchPage.verifyMandatoryFields(driver);
     }
     @Test
-    public static void calenderinput() throws InterruptedException {
+    public void calenderinput(Method method) throws InterruptedException {
+        startTest(method.getName(), "calenderinput");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonAddbranch(driver);
         AddbranchPage.calenderinput(driver);
     }
 
     @Test
-    public static void verifyphonenumber() throws InterruptedException {
+    public void verifyphonenumber(Method method) throws InterruptedException {
+        startTest(method.getName(), "verifyphonenumber");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonAddbranch(driver);
         AddbranchPage.verifyphonenumber(driver);
     }
     @Test
-    public static void verifybranchcode() throws InterruptedException {
+    public void verifybranchcode(Method method) throws InterruptedException {
+        startTest(method.getName(), "verifybranchcode");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonAddbranch(driver);
         AddbranchPage.verifybranchcode(driver);
     }
     @Test
-    public static void verifybranchname() throws InterruptedException {
+    public void verifybranchname(Method method) throws InterruptedException {
+        startTest(method.getName(), "verifybranchname");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonAddbranch(driver);
         AddbranchPage.verifybranchname(driver);
     }
 
     @Test
-    public static void verifygst() throws InterruptedException
+    public void verifygst(Method method) throws InterruptedException
     {
+        startTest(method.getName(), "verifygst");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonAddbranch(driver);
         AddbranchPage.verifygst(driver);
     }
     @Test
-    public static void verifyservicenumber() throws InterruptedException
+    public void verifyservicenumber(Method method) throws InterruptedException
     {
+        startTest(method.getName(), "verifyservicenumber");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonAddbranch(driver);
         AddbranchPage.verifyservicenumber(driver);
     }
     @Test
-    public static void verifylatitude() throws InterruptedException
+    public void verifylatitude(Method method) throws InterruptedException
     {
+        startTest(method.getName(), "verifylatitude");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonAddbranch(driver);
         AddbranchPage.verifylatitude(driver);
     }
     @Test
-    public static void verifyLongitude() throws InterruptedException {
+    public void verifyLongitude(Method method) throws InterruptedException {
+        startTest(method.getName(), "verifyLongitude");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonAddbranch(driver);
         AddbranchPage.verifylongitude(driver);
     }
     @Test
-    public static void verifystaticip() throws InterruptedException
+    public void verifystaticip(Method method) throws InterruptedException
     {
+        startTest(method.getName(), "verifystaticip");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonAddbranch(driver);
         AddbranchPage.verifystaticip(driver);
     }
     @Test
-    public static void verifyLatitudelabel() throws InterruptedException {
+    public void verifyLatitudelabel(Method method) throws InterruptedException {
+        startTest(method.getName(), "verifyLatitudelabel");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonAddbranch(driver);
         AddbranchPage.verifyLatitudelabel(driver);
     }
     @Test
-    public static void delete() throws InterruptedException {
+    public void delete(Method method) throws InterruptedException {
+        startTest(method.getName(), "delete");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonbranchlist(driver);
         BranchListPage.delete_branch_list(driver);
     }
     @Test
-    public static void edit() throws InterruptedException {
+    public void edit(Method method) throws InterruptedException {
+        startTest(method.getName(), "edit");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonbranchlist(driver);
         BranchListPage.edit_branch_list(driver);
     }
     @Test
-    public static void branchcode() throws InterruptedException {
+    public void branchcode(Method method) throws InterruptedException {
+        startTest(method.getName(), "branchcode");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonbranchlist(driver);
         BranchListPage.branchcode_notmarkedwith_asterisksign(driver);
     }
     @Test
-    public static void time() throws InterruptedException {
+    public void time(Method method) throws InterruptedException {
+        startTest(method.getName(), "time");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonbranchlist(driver);
         BranchListPage.inauguration_time(driver);
     }
     @Test
-    public static void save_already_deleted_data() throws InterruptedException {
+    public void save_already_deleted_data(Method method) throws InterruptedException {
+        startTest(method.getName(), "save_already_deleted_data");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonAddbranch(driver);
         AddbranchPage.save_details(driver);
     }
     @Test
-    public static void spelling_error() throws InterruptedException {
+    public void spelling_error(Method method) throws InterruptedException {
+        startTest(method.getName(), "spelling_error");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonAddbranch(driver);
         AddbranchPage.branch_already_exist(driver);
     }
 
-  @AfterTest
+  @AfterMethod
     public void tearDown(){
+
         driver.quit();
     }
 

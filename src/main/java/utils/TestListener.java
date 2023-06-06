@@ -7,12 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import com.tests.*;
 
 import java.util.Objects;
 
 import static utils.ExtentTestManager.getTest;
 
-public class TestListener implements ITestListener {
+public class TestListener extends driverHelper implements ITestListener {
+    WebDriver testDriver;
     private static String getTestMethodName(ITestResult iTestResult) {
         return iTestResult.getMethod().getConstructorOrMethod().getName();
     }
@@ -20,6 +22,7 @@ public class TestListener implements ITestListener {
     public void onStart(ITestContext iTestContext) {
         Log.info("I am in onStart method " + iTestContext.getName());
         iTestContext.setAttribute("WebDriver",driverHelper.driver);
+        testDriver = driverHelper.driver;
     }
     @Override
     public void onFinish(ITestContext iTestContext) {
@@ -40,15 +43,15 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult iTestResult) {
         Log.info(getTestMethodName(iTestResult) + " test is failed.");
-        //Get driver from BaseTest and assign to local webdriver variable.
+//        Get driver from BaseTest and assign to local webdriver variable.
         Object testClass = iTestResult.getInstance();
-        WebDriver driver = driverHelper.getdriver();
+        WebDriver driver = driverHelper.driver;
         //Take base64Screenshot screenshot for extent reports
-        String base64Screenshot =
-                "data:image/png;base64," + ((TakesScreenshot) Objects.requireNonNull(driver)).getScreenshotAs(OutputType.BASE64);
+//        String base64Screenshot =
+//                "data:image/png;base64," + ((TakesScreenshot) Objects.requireNonNull(testDriver)).getScreenshotAs(OutputType.BASE64);
         //ExtentReports log and screenshot operations for failed tests.
-        getTest().log(Status.FAIL, "Test Failed",
-                getTest().addScreenCaptureFromBase64String(base64Screenshot).getModel().getMedia().get(0));
+        getTest().log(Status.FAIL, "Test Failed");
+//                getTest().addScreenCaptureFromBase64String(base64Screenshot).getModel().getMedia().get(0));
     }
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
