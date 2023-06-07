@@ -45,13 +45,13 @@ public class TestListener extends driverHelper implements ITestListener {
         Log.info(getTestMethodName(iTestResult) + " test is failed.");
 //        Get driver from BaseTest and assign to local webdriver variable.
         Object testClass = iTestResult.getInstance();
-        WebDriver driver = driverHelper.driver;
-        //Take base64Screenshot screenshot for extent reports
-//        String base64Screenshot =
-//                "data:image/png;base64," + ((TakesScreenshot) Objects.requireNonNull(testDriver)).getScreenshotAs(OutputType.BASE64);
-        //ExtentReports log and screenshot operations for failed tests.
-        getTest().log(Status.FAIL, "Test Failed");
-//                getTest().addScreenCaptureFromBase64String(base64Screenshot).getModel().getMedia().get(0));
+        WebDriver drdriver = driverHelper.driver;
+
+        String base64Screenshot =
+                "data:image/png;base64," + ((TakesScreenshot) Objects.requireNonNull(drdriver)).getScreenshotAs(OutputType.BASE64);
+
+        getTest().log(Status.FAIL, "Test Failed",
+                getTest().addScreenCaptureFromBase64String(base64Screenshot).getModel().getMedia().get(0));
     }
     @Override
     public void onTestSkipped(ITestResult iTestResult) {

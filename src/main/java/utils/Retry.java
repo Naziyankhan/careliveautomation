@@ -29,9 +29,9 @@ public class Retry implements IRetryAnalyzer {
     }
     public void extendReportsFailOperations(ITestResult iTestResult) {
         Object testClass = iTestResult.getInstance();
-//        WebDriver webDriver = driverHelper.driver;
-//        String base64Screenshot = "data:image/png;base64," + ((TakesScreenshot) testDriver).getScreenshotAs(OutputType.BASE64);
-//        getTest().log(Status.FAIL, "Test Failed",
-//                getTest().addScreenCaptureFromBase64String(base64Screenshot).getModel().getMedia().get(0));
+        WebDriver webDriver = driverHelper.driver;
+        String base64Screenshot = "data:image/png;base64," + ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.BASE64);
+        getTest().log(Status.FAIL, "Test Failed",
+                getTest().addScreenCaptureFromBase64String(base64Screenshot).getModel().getMedia().get(0));
     }
 }
