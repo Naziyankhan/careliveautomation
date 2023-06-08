@@ -147,7 +147,7 @@ public class SmokeTest {
     }
     @Test
     public void branchcode(Method method) throws InterruptedException {
-        startTest("TESTCASE 16 - Verify that the Branch Code is marked with asterisk sign or not", "branchcode");
+        startTest("TESTCASE 16 - Verify that the Branch Code is marked with asterisk sign or not", "mandatory sign missing");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonbranchlist(driver);
         BranchListPage.branchcode_notmarkedwith_asterisksign(driver);
@@ -168,7 +168,7 @@ public class SmokeTest {
     }
     @Test
     public void spelling_error(Method method) throws InterruptedException {
-        startTest("TESTCASE 19 - Verify that the ", "spelling_error");
+        startTest("TESTCASE 19 - Verify the spelling mistake ", "spelling_error");
         HomePage.clickOnMaster(driver);
         MasterPage.clickonAddbranch(driver);
         AddbranchPage.branch_already_exist(driver);

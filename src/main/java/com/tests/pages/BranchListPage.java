@@ -42,6 +42,7 @@ public class BranchListPage {
     {
         driver.findElement(EDIT).click();
         driver.findElement(TIME).click();
+      Assert.assertFalse(driver.findElement(TIME).isDisplayed(), "Two clocks displayed");
     }
 }
 

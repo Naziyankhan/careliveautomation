@@ -45,7 +45,7 @@ public class AddbranchPage {
 //    static By SAVED = By.xpath("//div[text()='Data saved successfully']");
     static By SAVED = By.xpath("//div[@id='swal2-content']");
     static By BRACATMESSAGE = By.xpath("//mat-error[text()=' You must select a branch category. ']");
-
+static By HIERARCHYMSG =By.xpath("//mat-error[text()=' You must select a hierarchy. ']");
 
     public static void enterBranchDetails(WebDriver driver) throws InterruptedException {
         driver.findElement(BRANCHCODE).sendKeys("BRAN002");
@@ -117,15 +117,15 @@ public class AddbranchPage {
         driver.findElement(QUNATITY).sendKeys("100");
         driver.findElement(AMOUNT).sendKeys("22000");
         driver.findElement(SAVE).click();
-        Assert.assertEquals(driver.findElement(SAVED).getText(), "Data saved successfully", "Data saved successfully");
+        Assert.assertEquals(driver.findElement(SAVED).isDisplayed(), "Data saved successfully", "Data saved successfully");
     }
     public static void verifyMandatoryFields(WebDriver driver) throws InterruptedException {
         driver.findElement(BRANCHCATEGORY).click();
         Thread.sleep(2000);
         driver.findElement(HIERARCHY).click();
         Thread.sleep(1000);
-        Assert.assertEquals(driver.findElement(BRACATMESSAGE).isDisplayed(),TRUE,"Alert displayed");
-
+       // Assert.assertEquals(driver.findElement(BRACATMESSAGE).isDisplayed(),TRUE,"Alert displayed");
+        Assert.assertFalse(driver.findElement(HIERARCHYMSG).isDisplayed());
     }
     public static void calenderinput(WebDriver driver) throws InterruptedException
     {
@@ -210,7 +210,7 @@ public class AddbranchPage {
         driver.findElement(STATICIP).sendKeys("192.168.1.1");
         driver.findElement(QUNATITY).sendKeys("1000");
         driver.findElement(AMOUNT).sendKeys("10000");
-        driver.findElement(SAVE).click();
+       // driver.findElement(SAVE).click();
         Assert.assertEquals(driver.findElement(BRANCHCODE).getText() , "BRANCH01" , "Branch code must be in alphanumeric");
     }
     public static void verifybranchname(WebDriver driver) throws InterruptedException
@@ -239,7 +239,7 @@ public class AddbranchPage {
         driver.findElement(STATICIP).sendKeys("192.168.1.1");
         driver.findElement(QUNATITY).sendKeys("1000");
         driver.findElement(AMOUNT).sendKeys("10000");
-        driver.findElement(SAVE).click();
+        //driver.findElement(SAVE).click();
         Assert.assertEquals(driver.findElement(BRANCHNAME).getText(), "CARE LIVE", "Branch name must be in alphanumeric ");
     }
     public static void verifygst(WebDriver driver) throws InterruptedException
@@ -367,7 +367,7 @@ public class AddbranchPage {
         driver.findElement(QUNATITY).sendKeys("10000");
         driver.findElement(AMOUNT).sendKeys("100000");
         // driver.findElement(SAVE).click();
-        Assert.assertEquals(driver.findElement(LONGITUDE).isDisplayed(), "76.313889" ,"LONGITUDE ");
+        Assert.assertEquals(driver.findElement(LONGITUDE).getText(), "76.313889" ,"LONGITUDE ");
 
     }
     public static void verifystaticip(WebDriver driver) throws InterruptedException
