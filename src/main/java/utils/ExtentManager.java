@@ -7,10 +7,10 @@ public class ExtentManager {
     public static final ExtentReports extentReports = new ExtentReports();
     public synchronized static ExtentReports createExtentReports() {
         ExtentSparkReporter reporter = new ExtentSparkReporter("./extent-reports/extent-report.html");
-        reporter.config().setReportName("Sample Extent Report");
+        reporter.config().setReportName("CareLive Extent Report");
         extentReports.attachReporter(reporter);
-        extentReports.setSystemInfo("Blog Name", "SW Test Academy");
-        extentReports.setSystemInfo("Author", "Onur Baskirt");
+        extentReports.setSystemInfo("Project Name", "CARELIVE");
+        extentReports.setSystemInfo("", "");
         return extentReports;
     }
 }

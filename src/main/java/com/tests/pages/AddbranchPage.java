@@ -153,7 +153,7 @@ public class AddbranchPage {
         driver.findElement(QUNATITY).sendKeys("1000");
         driver.findElement(AMOUNT).sendKeys("10000");
         driver.findElement(SAVE).click();
-      //  Assert.assertEquals(driver.findElement(DATE).getText(), false ,"date ");
+        Assert.assertEquals(driver.findElement(DATE).getText(), false ,"date ");
     }
     public static void  verifyphonenumber(WebDriver driver) throws InterruptedException
     {
@@ -269,7 +269,7 @@ public class AddbranchPage {
         driver.findElement(QUNATITY).sendKeys("1000");
         driver.findElement(AMOUNT).sendKeys("10000");
         driver.findElement(SAVE).click();
-        Assert.assertEquals(driver.findElement(GST).isDisplayed(), "32ABCTY1234D2z9", "gst should be in Correct format");
+        Assert.assertEquals(driver.findElement(GST).isDisplayed(), "32ABCTY1234D2Z9", "gst should be in Correct format");
     }
     public static void verifyservicenumber(WebDriver driver) throws InterruptedException
     {
