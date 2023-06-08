@@ -25,12 +25,6 @@
             <version>7.5.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
-
-        <dependency>
-            <groupId>com.aventstack</groupId>
-            <artifactId>extentreports</artifactId>
-            <version>3.1.5</version>
-        </dependency>
         <dependency>
         <groupId>com.aventstack</groupId>
         <artifactId>extentreports</artifactId>
@@ -61,7 +55,7 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <log4j-version>2.19.0</log4j-version>
-        <extentreports-version>5.0.8</extentreports-version>
+        <extentreports-version>5.0.9</extentreports-version>
         <maven-surefire-plugin-version>3.0.0-M8</maven-surefire-plugin-version>
         <lombok-version>1.18.26</lombok-version>
     </properties>
