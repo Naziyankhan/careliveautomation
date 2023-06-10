@@ -1,5 +1,6 @@
 package com.tests.pages;
 
+import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -45,7 +46,8 @@ public class AddbranchPage {
 //    static By SAVED = By.xpath("//div[text()='Data saved successfully']");
     static By SAVED = By.xpath("//div[@id='swal2-content']");
     static By BRACATMESSAGE = By.xpath("//mat-error[text()=' You must select a branch category. ']");
-static By HIERARCHYMSG =By.xpath("//mat-error[text()=' You must select a hierarchy. ']");
+    static By HIERARCHYMSG =By.xpath("//mat-error[text()=' You must select a hierarchy. ']");
+    static By BUTTONLABEL = By.xpath("//label[contains(text(),'+')]");
 
     public static void enterBranchDetails(WebDriver driver) throws InterruptedException {
         driver.findElement(BRANCHCODE).sendKeys("BRAN002");
@@ -89,14 +91,14 @@ static By HIERARCHYMSG =By.xpath("//mat-error[text()=' You must select a hierarc
     }
 
     public static void addbranchwithmandatoryfields(WebDriver driver) throws InterruptedException {
-        driver.findElement(BRANCHCODE).sendKeys("BRAN034");
-        driver.findElement(BRANCHNAME).sendKeys("TVM");
+        driver.findElement(BRANCHCODE).sendKeys("BRANTVM");
+        driver.findElement(BRANCHNAME).sendKeys("TVM1");
         driver.findElement(BRANCHCATEGORY).click();
         Thread.sleep(500);
         driver.findElement(DEFAULTVALUE).click();
         driver.findElement(HIERARCHY).click();
         Thread.sleep(500);
-        driver.findElement(DEFAULTVALUE).click();
+        driver.findElement(HIERARCHYVALUE).click();
         driver.findElement(PRICETEMPLATE).click();
         driver.findElement(PRICETEMPLATEVALUE).click();
         driver.findElement(GST).sendKeys("123450965");
@@ -117,7 +119,7 @@ static By HIERARCHYMSG =By.xpath("//mat-error[text()=' You must select a hierarc
         driver.findElement(QUNATITY).sendKeys("100");
         driver.findElement(AMOUNT).sendKeys("22000");
         driver.findElement(SAVE).click();
-        Assert.assertEquals(driver.findElement(SAVED).isDisplayed(), "Data saved successfully", "Data saved successfully");
+        Assert.assertTrue(driver.findElement(SAVED).isDisplayed());
     }
     public static void verifyMandatoryFields(WebDriver driver) throws InterruptedException {
         driver.findElement(BRANCHCATEGORY).click();
@@ -464,4 +466,9 @@ static By HIERARCHYMSG =By.xpath("//mat-error[text()=' You must select a hierarc
         //driver.findElement(OK).click();
     }
 
+        public static void bottomlabel(WebDriver driver)
+        {
+            driver.findElement(BUTTONLABEL).click();
+           // Assert.assertFalse(driver.findElement(BUTTONLABEL).,"");
+        }
 }
