@@ -3,14 +3,12 @@ package com.tests;
 import com.tests.pages.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Reporter;
 import org.testng.annotations.*;
 
 import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 import utils.driverHelper;
 
-import static utils.ExtentTestManager.getTest;
 import static utils.ExtentTestManager.startTest;
 
 
