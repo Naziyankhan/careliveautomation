@@ -46,7 +46,7 @@ public class PurchaseTest {
         Thread.sleep(300);
         HomePage.ClickOnAddGRN(driver);
         Thread.sleep(300);
-        AddGRNPage.Additems(driver);
+        AddGRNPage.Addoneitems(driver);
     }
 
 
@@ -59,7 +59,7 @@ public class PurchaseTest {
 
         }
 
-        @Test
+                                                                                                                                                                                                                                                                                                                      @Test
     public void successmsg() throws InterruptedException {
         startTest("Check success message is displayed or not when a item is added.","fields are added");
         Thread.sleep(300);
@@ -72,5 +72,13 @@ public class PurchaseTest {
         Thread.sleep(500);
         HomePage.ClickOnAddGRN(driver);
         AddGRNPage.countchanges(driver);
- }
+
+    }
+    @Test
+    public void validation() throws InterruptedException {
+        startTest("check the validation of input box","");
+        HomePage.ClickOnAddGRN(driver);
+        Thread.sleep(200);
+        AddGRNPage.validation(driver);
+    }
 }
