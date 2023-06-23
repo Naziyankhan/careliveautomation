@@ -52,7 +52,7 @@ public class PurchaseTest {
 
     @Test
         public void sameitemadded() throws InterruptedException {
-            startTest("Check on adding the new item and whether the count is increasing.", "same item ");
+        startTest("Check on adding the new item and whether the count is increasing.", "same item ");
        Thread.sleep(200);
        HomePage.ClickOnAddGRN(driver);
         AddGRNPage.Sameitem(driver);
@@ -81,4 +81,5 @@ public class PurchaseTest {
         Thread.sleep(200);
         AddGRNPage.validation(driver);
     }
+
 }
