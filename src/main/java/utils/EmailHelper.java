@@ -25,7 +25,7 @@ public class EmailHelper {
 
 
             String username = "tomtalking98765@gmail.com";
-            String password = "htijtcjgizqyytoc";
+            String password = "";
 
             Session session = Session.getInstance(props, new Authenticator() {
                 @Override

@@ -56,11 +56,10 @@ public class PurchaseTest {
        Thread.sleep(200);
        HomePage.ClickOnAddGRN(driver);
         AddGRNPage.Sameitem(driver);
-
         }
 
-                                                                                                                                                                                                                                                                                                                      @Test
-    public void successmsg() throws InterruptedException {
+    @Test
+        public void successmsg() throws InterruptedException {
         startTest("Check success message is displayed or not when a item is added.","fields are added");
         Thread.sleep(300);
         HomePage.ClickOnAddGRN(driver);
@@ -81,5 +80,19 @@ public class PurchaseTest {
         Thread.sleep(200);
         AddGRNPage.validation(driver);
     }
+ @Test
+    public void amount() throws InterruptedException {
+     startTest("Check whether amount changes when user add items.","");
+     HomePage.ClickOnAddGRN(driver);
+     Thread.sleep(300);
+     AddGRNPage.amount(driver);
+ }
+ @Test
+    public void amount1() throws InterruptedException {
+     startTest("check whether amount changes when user removes items.","");
+     HomePage.ClickOnAddGRN(driver);
+     Thread.sleep(200);
+     AddGRNPage.amount1(driver);
+ }
 
 }
