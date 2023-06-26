@@ -10,7 +10,7 @@ public class ExtentManager {
         reporter.config().setReportName("CareLive Extent Report");
         extentReports.attachReporter(reporter);
         extentReports.setSystemInfo("Project Name", "CARELIVE");
-        extentReports.setSystemInfo("", "");
+        extentReports.setSystemInfo("MODULE", "PURCHASE");
         return extentReports;
     }
 }

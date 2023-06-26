@@ -5,10 +5,14 @@
         <listener class-name="utils.TestListener"/>
         <listener class-name="utils.AnnotationTransformer"/>
     </listeners>
+
     <test name="Test">
         <classes>
             <class name ="com.tests.PurchaseTest"/>
         </classes>
+<!--        <classes>-->
+<!--            <class name="com.tests.SmokeTest"></class>-->
+<!--        </classes>-->
     </test> <!-- Test -->
 
 </suite> <!-- Suite -->
