@@ -3,10 +3,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import sun.security.provider.DRBG;
+
 
 public class AddGRNPage {
-
+    static By updatedtotal = By.xpath("//div[contains(@class, 'col-md-4') and contains(@style, 'text-align: right; padding-left: 0; margin-top: 7px;')]");
+    static By removebutton = By.xpath("//tbody/tr[2]/td[11]/button[2]/i[1]");
+    static  By initaltotal = By.xpath("//div[contains(@class, 'col-md-4') and contains(@style, 'text-align: right')]");
+    static  By errormessage = By.xpath("//div[@class='mat-form-field-hint-wrapper ng-tns-c96-45 ng-trigger ng-trigger-transitionMessages ng-star-inserted");
     static By CGST = By.id("txtCgst");
     static By SGST = By.id("txtSgst");
     static By SUPPLIER = By.name("supplier");
@@ -18,6 +21,7 @@ public class AddGRNPage {
     static By COUNT = By.id("count");
     static By QTY = By.id("txtQty");
     static By RATE = By.id("txtRate");
+    static By RATE2 = By.xpath("//tbody/tr[2]/td[4]/input[1]");
     static By BATCH = By.id("idImei");
     static  By IMEI = By.id("idImei");
    // Data saved successfully
@@ -32,9 +36,10 @@ public class AddGRNPage {
     static By SAVED =By.xpath("//button[contains(@class, 'swal2-confirm')]");
     static By ADD =By.id("add_button");
     static By ITEM1 = By.xpath("//span[contains(text(),' SMTV0079-Led Tv Samsung Ua32T4010Arxxl (Foc) ')]");
-    static  By ADDITEM =By.xpath("//tbody/tr[2]/td[2]/mat-form-field[1]/div[1]/div[1]/div[1]/input[1]");
+    //static  By ADDITEM =By.xpath("//input[contains(@class, 'mat-input-element') and contains(@data-placeholder, 'Enter item name')]");
+    static By ADDITEM = By.name("//div[@class='mat-form-field-infix ng-tns-c96-17]");
     static By OKBUTTON = By.xpath("//button[@class='swal2-confirm swal2-styled']");
-    //static By initialamount= By.xpath("");
+
     static By QTY2 = By.xpath("//tbody/tr[2]/td[3]/input[1]");
     public static void addGRN(WebDriver driver) throws InterruptedException {
 
@@ -125,7 +130,7 @@ public class AddGRNPage {
             driver.findElement(SAVE1).click();
 
             driver.findElement(SAVE).click();
-            Assert.assertTrue(driver.findElement(SAVE).isDisplayed(), "");
+            Assert.assertTrue(driver.findElement(SAVED).isDisplayed(), "");
         }
     public static void successmsg (WebDriver driver) throws InterruptedException {
         driver.findElement(SUPPLIER).sendKeys("Matrix");
@@ -174,7 +179,7 @@ public class AddGRNPage {
         driver.findElement(BATCH).click();
         driver.findElement(SAVE1).click();
 
-        driver.findElement(SAVE).click();
+        driver.findElement(SAVED).click();
         //driver.findElement(SAVE).click();
       //  int countAfterAdding = Integer.parseInt(driver.findElement(COUNT).getText());
        //Assert.assertEquals();
@@ -182,8 +187,10 @@ public class AddGRNPage {
 
     public static void validation(WebDriver driver)
     {
+            driver.findElement(SUPPLIER).clear();
+            driver.findElement(SUPPLIER).sendKeys("");
             driver.findElement(SAVE).click();
-            Assert.assertTrue(driver.findElement(SUPPLIER).isDisplayed());
+            Assert.assertTrue(driver.findElement(errormessage).isDisplayed(),"Validation error message is not displayed.");
     }
 
      public static void amount(WebDriver driver) throws InterruptedException {
@@ -191,9 +198,10 @@ public class AddGRNPage {
          Thread.sleep(300);
          driver.findElement(SUPPLIER1).click();
          Thread.sleep(300);
-         driver.findElement(BILLNO).sendKeys("4586");
+         driver.findElement(BILLNO).sendKeys("301");
          driver.findElement(PURCHASETYPE).click();
-         driver.findElement(COMMERICAL).click();
+         driver.findElement(CONSUMER).click();
+
          driver.findElement(ITEMNAME).sendKeys("screen");
          driver.findElement(ITEM).click();
          driver.findElement(QTY).clear();
@@ -202,19 +210,22 @@ public class AddGRNPage {
          driver.findElement(RATE).sendKeys("100");
          driver.findElement(BATCH).click();
          driver.findElement(SAVE1).click();
+        driver.findElement(initaltotal).isDisplayed();
 
-         driver.findElement(ADD).click();
-
-         driver.findElement(ITEMNAME).click();
+        driver.findElement(ADD).click();
+        Thread.sleep(300);
+         driver.findElement(ADDITEM).click();
+         driver.findElement(ADDITEM).sendKeys("screen");
+         Thread.sleep(300);
          driver.findElement(ITEM).click();
-
-         driver.findElement(QTY).sendKeys("10");
-         driver.findElement(RATE).sendKeys("100");
+         driver.findElement(QTY2).clear();
+         driver.findElement(QTY2).sendKeys("10");
+         driver.findElement(RATE2).clear();
+         driver.findElement(RATE2).sendKeys("100");
          driver.findElement(BATCH).click();
          driver.findElement(SAVE1).click();
-
-         driver.findElement(SAVE).click();
-         Assert.assertTrue(driver.findElement(SAVE).isDisplayed(), "");
+        driver.findElement(updatedtotal).getText();
+        Assert.assertNotEquals(driver.findElement(initaltotal).isDisplayed() , driver.findElement(updatedtotal).isDisplayed() , "Amount did not change when adding items");
 
      }
  public static  void amount1(WebDriver driver) throws InterruptedException {
@@ -222,7 +233,7 @@ public class AddGRNPage {
      Thread.sleep(300);
      driver.findElement(SUPPLIER1).click();
      Thread.sleep(300);
-     driver.findElement(BILLNO).sendKeys("4586");
+     driver.findElement(BILLNO).sendKeys("1001");
      driver.findElement(PURCHASETYPE).click();
      driver.findElement(COMMERICAL).click();
 
@@ -233,20 +244,26 @@ public class AddGRNPage {
      driver.findElement(RATE).clear();
      driver.findElement(RATE).sendKeys("100");
      driver.findElement(BATCH).click();
-     driver.findElement(SAVE1).click();
+    driver.findElement(SAVE1).click();
+
 
      driver.findElement(ADD).click();
-
-     driver.findElement(ITEMNAME).sendKeys("screen");
-     driver.findElement(ITEM).click();
-
-     driver.findElement(QTY).sendKeys("10");
-     driver.findElement(RATE).sendKeys("100");
+  Thread.sleep(300);
+  driver.findElement(ADDITEM).sendKeys("screen");
+  Thread.sleep(300);
+     driver.findElement(ITEM2).click();
+     driver.findElement(QTY2).clear();
+     driver.findElement(QTY2).sendKeys("10");
+     driver.findElement(RATE2).clear();
+     driver.findElement(RATE2).sendKeys("100");
      driver.findElement(BATCH).click();
      driver.findElement(SAVE1).click();
+     driver.findElement(initaltotal).getText();
+     driver.findElement(removebutton).click();
+     driver.findElement(updatedtotal).getText();
 
-     driver.findElement(SAVE).click();
-     Assert.assertTrue(driver.findElement(SAVE).isDisplayed(), "");
+     Assert.assertEquals(driver.findElement(initaltotal).isDisplayed(), driver.findElement(initaltotal).isDisplayed(),"Amount did not change on remove!");
+
  }
  public static void finalamount(WebDriver driver)
  {
