@@ -179,10 +179,10 @@ public class SmokeTest {
         AddbranchPage.bottomlabel(driver);
     }
 
-  @AfterMethod
-    public void tearDown(){
-
-        driver.quit();
-    }
+//  @AfterMethod
+//    public void tearDown(){
+//
+//        driver.quit();
+//    }
 
 }

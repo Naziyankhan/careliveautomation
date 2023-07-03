@@ -8,11 +8,12 @@
 
     <test name="Test">
         <classes>
-            <class name ="com.tests.PurchaseTest"/>
+
+
+            <class name="com.tests.PurchaseTest"></class>
         </classes>
-<!--        <classes>-->
-<!--            <class name="com.tests.SmokeTest"></class>-->
-<!--        </classes>-->
+
     </test> <!-- Test -->
 
 </suite> <!-- Suite -->
+
