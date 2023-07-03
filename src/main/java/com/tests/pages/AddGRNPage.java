@@ -45,6 +45,10 @@ public class AddGRNPage {
     static By OKBUTTON = By.xpath("//button[@class='swal2-confirm swal2-styled']");
 
     static By QTY2 = By.xpath("//tbody/tr[2]/td[3]/input[1]");
+    static By amt1= By.xpath("(//input[@placeholder='Total Amt'])[1]");
+    static By amt2= By.xpath("(//input[@placeholder='Total Amt'])[2]");
+    static By netvalue= By.xpath("//body/app-root[1]/app-full-layout[1]/div[1]/div[1]/div[1]/app-purchase[1]/div[1]/div[1]/div[4]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]");
+
     public static void addGRN(WebDriver driver) throws InterruptedException {
 
         driver.findElement(SUPPLIER).sendKeys("Matrix");
@@ -104,7 +108,7 @@ public class AddGRNPage {
         driver.findElement(SAVE).click();
         Assert.assertTrue(driver.findElement(saved).isDisplayed(), "Item was not added successfully");
     }
-        public static void Sameitem (WebDriver driver) throws InterruptedException {
+        public static void addsameitem (WebDriver driver) throws InterruptedException {
             driver.findElement(SUPPLIER).sendKeys("Matrix");
             Thread.sleep(300);
             driver.findElement(SUPPLIER1).click();
@@ -135,9 +139,9 @@ public class AddGRNPage {
             driver.findElement(SAVE1).click();
 
             driver.findElement(SAVE).click();
-            Assert.assertTrue(driver.findElement(saved).isDisplayed(), "");
+            Assert.assertTrue(driver.findElement(saved).isDisplayed(), "saved successfully");
         }
-    public static void successmsg (WebDriver driver) throws InterruptedException {
+    public static void verifysuccessmessageforadditem (WebDriver driver) throws InterruptedException {
         driver.findElement(SUPPLIER).sendKeys("Matrix");
         Thread.sleep(300);
         driver.findElement(SUPPLIER1).click();
@@ -301,6 +305,17 @@ public class AddGRNPage {
      driver.findElement(ITEM1).click();
       Assert.assertTrue(driver.findElement(CGST).isDisplayed(),"CGST field is not displayed.");
    //  Assert.assertTrue(driver.findElement(SGST).isDisplayed(), "SGST field is not displayed.");
+
+ }
+ public static void verifytotalamount(WebDriver driver)
+ {
+     String amount1,amount2;
+        amount1= driver.findElement(amt1).getText();
+        amount2=driver.findElement(amt2).getText();
+        float fvalue1 =Float.parseFloat(amount1);
+        float fvalue2 =Float.parseFloat(amount2);
+
+
 
  }
 }
